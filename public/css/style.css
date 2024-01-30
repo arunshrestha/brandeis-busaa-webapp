@@ -1,0 +1,85 @@
+@media screen and (max-width: 800px) {
+  article {
+    flex: 100%;
+  }
+}
+
+header {
+  background-color: lavender;
+  padding: 35px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  width: 100%;
+}
+
+.header h1 {
+  color: rgb(141, 141, 216);
+}
+
+.nav {
+
+  background-color: midnightblue;
+  box-shadow: 0 0 0.3em 0.1em rgb(205, 205, 227);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.nav li {
+  display: inline;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background-color: lavender;
+  color: rgb(141, 141, 216);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  background-color: lavender;
+  color: rgb(125, 125, 141);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+table td,
+th {
+  padding: 20px;
+}
+
+.current-user {
+  background-color: bisque;
+}
+
+.other-user {
+  background-color: azure;
+}
+
+section {
+  display: flex;
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+}

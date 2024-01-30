@@ -1,0 +1,38 @@
+<h1>Job Data for <%= job.title %>
+</h1>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <td>
+            <%= job.title %>
+        </td>
+    </tr>
+    <tr>
+        <th>Company</th>
+        <td>
+            <%= job.company %>
+        </td>
+    </tr>
+    <tr>
+        <th>Location</th>
+        <td>
+            <%= job.location %>
+        </td>
+    </tr>
+</table>
+<div>
+    <a href="/jobs">View all jobs</a>
+</div>
+<% if (loggedIn) { %>
+    <div>
+        <a href="<%=`/jobs/${job._id}/edit`%>">Edit Job
+            Details</a>
+    </div>
+    <% if (currentUser.isAdmin) { %>
+        <div>
+            <a href="<%= `/jobs/${job._id}/delete?_method=DELETE` %>"
+                onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+        </div>
+        <%} %>
+
+            <%} %>

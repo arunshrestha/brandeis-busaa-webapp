@@ -1,0 +1,33 @@
+<div class="data-form">
+    <div>One needs to be logged in to create new jobs</div>
+    <form method="POST" action="/jobs/create">
+        <h2>Create job:</h2>
+        <label for="inputTitle">Title</label>
+        <input type="text" name="title" id="inputTitle" placeholder="Title" required />
+        <label for="inputCompany">Company</label>
+        <input type="text" name="company" id="inputCompany" placeholder="Company" required />
+        <label for="inputLocation">Location</label>
+        <input type="text" name="location" id="inputLocation" placeholder="Location" required />
+        <label for="inputDescription">Description</label>
+        <input type="text" name="description" id="inputDescription" placeholder="Description" required />
+        <label for="inputRequirements">Requirements</label>
+        <input type="text" name="requirements" id="inputRequirements" placeholder="Requirements" required />
+        <label for="inputSalary">Salary</label>
+        <input type="number" name="salary" id="inputSalary" placeholder="Salary" required />
+        <label for="inputContactEmail">Contact Email</label>
+        <input type="text" name="contactEmail" id="inputContactEmail" placeholder="contactEmail" required />
+        <label for="inputContactPhone">Contact Phone</label>
+        <input type="text" name="contactPhone" id="inputContactPhone" placeholder="contactPhone" required />
+        <label for="inputPostDate">Post Date</label>
+        <input type="date" name="postDate" id="inputPostDate" placeholder="PostDate" />
+        <label for="inputDeadlineDate">Deadline Date</label>
+        <input type="date" name="deadlineDate" id="inputDeadlineDate" "
+            placeholder=" DeadlineDate" />
+        <label for="inputIsActive">Is Active</label>
+        <input type="checkbox" name="isActive" id="inputIsActive" placeholder="IsActive" />
+        <% if (loggedIn) { %>
+            <button type="submit">Create</button>
+
+            <%} %>
+    </form>
+</div>

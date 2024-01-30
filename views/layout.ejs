@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <title>Brandeis Student and Alumni Association</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/style.css" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <div>
+      <img src="/images/BrandeisLogo.png">
+    </div>
+    <div class="header-text">
+      <div>
+        <h1>Brandeis University</h1>
+      </div>
+      <div>
+        <h2>Students & Alumni Association</h2>
+      </div>
+
+    </div>
+
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/jobs">Jobs</a></li>
+      <li><a href="/events">Events</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><%- include('events/_eventsModal') %></li>
+      <li><a href="/chat" class="chat-icon">Chat @</a></li>
+      <% if (loggedIn) { %>
+        <li><a href="<%=`/users/${currentUser._id}`%>">
+            <%= currentUser.name %>
+          </a></li>
+        <div id="apiToken" data-token="<%= currentUser.apiToken %>" style="display: none"></div>
+        <li><a href="/users/logout">Log out</a></li>
+
+        <%} else {%>
+          <li><a href="/users/new">Sign Up</a></li>
+          <li><a href="/users/login">Log In</a></li>
+          <% } %>
+    </ul>
+  </header>
+
+  <div class="flashes">
+    <% if (flashMessages) { %>
+      <% if (flashMessages.success) { %>
+        <div class="flash success">
+          <%= flashMessages.success %>
+        </div>
+        <% } else if (flashMessages.error) { %>
+          <div class="flash error">
+            <%= flashMessages.error %>
+          </div>
+          <% } %>
+            <% } %>
+  </div>
+  <section>
+    <article>
+      <%- body%>
+    </article>
+  </section>
+
+  <footer>
+    <div id="copyright-text">Copyright 2023 Brandeis University</div>
+    <div id="social-media">
+      <!-- Add icon library -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <!-- Add font awesome icons -->
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-youtube"></a>
+      <a href="#" class="fa fa-instagram"></a>
+      <a href="#" class="fa fa-linkedin"></a>
+    </div>
+
+  </footer>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="/js/busaaApp.js"></script>
+</body>
+
+</html>

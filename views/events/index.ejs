@@ -1,0 +1,52 @@
+<section>
+    <article>
+        <h3>We Are Proud</h3>
+        <h4>Students & Alumni of Brandeis University</h4>
+        <p>These are the events we have for the upcoming month:
+        <h2>Events Table</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% events.forEach(event=> { %>
+                    <tr>
+                        <td>
+                            <a href="<%= `/events/${event._id}` %>">
+                                <%= event.title %>
+                            </a>
+                        </td>
+                        <td>
+                            <%= event.description %>
+                        </td>
+                        <td>
+                            <%= event.location %>
+                        </td>
+                        <% if (loggedIn) { %>
+                            <td>
+                                <a href="<%=`/events/${event._id}/edit` %>"> Edit </a>
+                                <% if (currentUser.isAdmin) { %>
+                            <td>
+                                <a href="<%= `events/${event._id}/delete?_method=DELETE` %>"
+                                    onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+                            </td>
+                            <%} %>
+                                </td>
+                                <%} %>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <% if (loggedIn) { %>
+            <div>
+                <a href="/events/new">Create a new event</a>
+            </div>
+            <%} %>
+
+                </p>
+    </article>
+</section>

@@ -1,0 +1,53 @@
+<section>
+    <article>
+        <h3>We Are Proud</h3>
+        <h4>Students & Alumni of Brandeis University</h4>
+        <p>The Association is looking for the following positions at the moment. If you are interested, please email
+            us with your resume.
+        <h2>Jobs Table</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Company</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% jobs.forEach(job=> { %>
+                    <tr>
+                        <td>
+                            <a href="<%= `/jobs/${job._id}` %>">
+                                <%= job.title %>
+                            </a>
+                        </td>
+                        <td>
+                            <%= job.company %>
+                        </td>
+                        <td>
+                            <%= job.location %>
+                        </td>
+                        <% if (loggedIn) { %>
+                            <td>
+                                <a href="<%=`/jobs/${job._id}/edit` %>"> Edit </a>
+                                <% if (currentUser.isAdmin) { %>
+                            <td>
+                                <a href="<%= `jobs/${job._id}/delete?_method=DELETE` %>"
+                                    onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+                            </td>
+                            <%} %>
+                                </td>
+                                <%} %>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <% if (loggedIn) { %>
+            <div>
+                <a href="/jobs/new">Create a new job</a>
+            </div>
+            <%} %>
+                </p>
+
+    </article>
+</section>
